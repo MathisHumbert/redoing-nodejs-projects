@@ -16,8 +16,6 @@ const register = async (req, res) => {
   //   expiresIn: '30d',
   // });
 
-  //res.status(StatusCodes.CREATED).json({ name: user.name, token: token });
-
   const user = await User.create(req.body);
   const token = user.createJWT();
 
@@ -45,6 +43,10 @@ const login = async (req, res) => {
   }
 
   const token = user.createJWT();
+
+  // const token = jwt.sign({ userId: user._id, name: user.name }, 'jwtSecret', {
+  //   expiresIn: '30d',
+  // });
 
   res.status(StatusCodes.OK).json({ name: user.name, token: token });
 };
