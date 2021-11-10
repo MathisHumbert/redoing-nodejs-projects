@@ -3,6 +3,7 @@ const createJob = (req, res) => {
 };
 
 const getAllJobs = (req, res) => {
+  console.log(req.user);
   res.send('get all jobs');
 };
 
